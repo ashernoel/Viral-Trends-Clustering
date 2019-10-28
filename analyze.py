@@ -6,22 +6,14 @@
 from pytrends.request import TrendReq
 import pandas as pd
 
-# Remove the old hyper files from the last run time. Comment
-import os
-try:
-    os.remove("outputData/annualUS.hyper")
-    os.remove('outputData/annualAverage.hyper')
-    os.remove('outputData/ivyWorld.hyper')
-    os.remove('outputData/ivyUS.hyper')
-except FileNotFoundError:
-    print("Could not delete old .hyper files")
+import matplotlib.pyplot as plt
 
-# https://pypi.org/project/pandleau/
-from pandleau import *
+# Remove the old hyper files from the last run time. Comment
+# Connect with Google somehow
+pytrends = TrendReq(hl='en-US', tz=360)
 
 def main():
-    # Connect with Google somehow
-    pytrends = TrendReq(hl='en-US', tz=360)
+
 
     # Define keywords to get data for
     colleges_HYPSM = [pytrends.suggestions('Harvard University')[0]['mid'],
@@ -56,10 +48,11 @@ def main():
     # HYPSM Dataframe: International and Domestic
     pytrends.build_payload(colleges_HYPSM, cat=0, timeframe='today 5-y', geo='', gprop='')
     worldData = pytrends.interest_over_time()
-    print(worldData)
+
     pytrends.build_payload(colleges_HYPSM, cat=0, timeframe='today 5-y', geo='US', gprop='')
     usData = pytrends.interest_over_time()
-    print(usData)
+
+
     worldData.columns = usData.columns = ["Harvard University", 'Stanford University',
                                           'Massachusetts Institute of Technology', 'Princeton University',
                                           'Yale University', "Useless Bool"]
@@ -94,23 +87,25 @@ def main():
     ivyWorldOut = getAnnualAverages(ivyWorld, 5, 2014)
     ivyUSOut = getAnnualAverages(ivyUS, 5, 2014)
 
-    outputData(annualWorld, 'outputData/annualWorld.hyper')
-    outputData(annualUS, 'outputData/annualUS.hyper')
-    outputData(ivyWorldOut, 'outputData/ivyWorld.hyper')
-    outputData(ivyUSOut, 'outputData/ivyUS.hyper')
+
+    ivyUSOut = ivyUSOut.cumsum()
+    plt.figure()
+    ivyUSOut.plot()
+
+    ivyWorldOut.plot.area()
+    annualUS.plot.area()
+    annualWorld.plot.area()
+
 
     #Print all the data for our article!
     print(worldData.mean())
     print(annualWorld.mean())
+
     print(usData.mean())
     print(annualUS.mean())
 
     print(ivyWorld.mean())
     print(ivyUS.mean())
-
-
-
-    cleanDirectory()
 
 # Get the annual averages from the master data DataFrame
 def getAnnualAverages(data, numYears, startingYear):
@@ -126,17 +121,6 @@ def getAnnualAverages(data, numYears, startingYear):
     output = output.div(output.sum(axis=1), axis=0)
     return output
 
-# Create output tableau files in "outputData" folder
-def outputData(data, name):
-    data = pandleau(data)
-    data.to_tableau(name, add_index=True)
-
-# Delete the DataExtract files that get created for some reason
-def cleanDirectory():
-    directory = os.getcwd()
-    for filename in os.listdir(directory):
-        if filename.endswith(".log"):
-            os.remove(filename)
 
 main()
 
