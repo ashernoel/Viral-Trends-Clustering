@@ -1,7 +1,3 @@
-# hello geena!
-# hi asherrrrr
-#test commit
-
 # Pytrends documentation: https://pypi.org/project/pytrends/
 # Connect Pytrends API to google
 from pytrends.request import TrendReq
