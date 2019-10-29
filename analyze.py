@@ -13,100 +13,41 @@ import matplotlib.pyplot as plt
 # Connect with Google somehow
 pytrends = TrendReq(hl='en-US', tz=360)
 
+college_colors = {"Harvard University": "#A51C30",
+                  "Stanford University": "#8C1515",
+                  "Massachusetts Institute of Technology": "#8A8B8C",
+                  "Princeton University": "#ff8f00",
+                  "Yale University": "#0f4d92",
+                  "Cornell University": "#D47500",
+                  "Brown University": "#4E3629",
+                  "Columbia University": "#B9D9EB",
+                  "Dartmouth College": "#00693e",
+                  "University of Pennsylvania": "tab:purple"
+                  }
+
+
 def main():
 
-
     # Define keywords to get data for
-    colleges_HYPSM = [pytrends.suggestions('Harvard University')[0]['mid'],
-                      pytrends.suggestions('Stanford University')[0]['mid'],
-                      pytrends.suggestions('Massachusetts Institute of Technology')[0]['mid'],
-                      pytrends.suggestions('Princeton University')[0]['mid'],
-                      pytrends.suggestions('Yale University')[0]['mid']]
+    colleges_HYPSM = ["Harvard University", 'Stanford University',
+                      'Massachusetts Institute of Technology', 'Princeton University',
+                      'Yale University']
 
-    colleges_usNews = ["Harvard University", "Princeton University", "Columbia University",
-                       "Massachusetts Institute of Technology", "Yale University", "Stanford University",
-                       "University of Chicago", "University of Pennsylvania"]
+    colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
+                          "Dartmouth College", "University of Pennsylvania", "Princeton University",
+                          "Yale University", "Cornell University"]
 
-    colleges_ivyLeague1 = [pytrends.suggestions('Harvard University')[0]['mid'],
-                           pytrends.suggestions("Brown University")[0]['mid'],
-                           pytrends.suggestions("Columbia University")[0]['mid'],
-                           pytrends.suggestions("Dartmouth College")[0]['mid']]
+    ivyUS = getTrendsData(colleges_ivyLeague, 'US', 'today 5-y', True)
 
-    colleges_ivyLeague2 = [pytrends.suggestions('Harvard University')[0]['mid'],
-                           pytrends.suggestions("University of Pennsylvania")[0]['mid'],
-                           pytrends.suggestions("Princeton University")[0]['mid'],
-                           pytrends.suggestions("Yale University")[0]['mid'],
-                           pytrends.suggestions("Cornell University")[0]['mid']
-                           ]
-
-
-
-    colleges_THERankings = ["University of Oxford", "California Institute of Technology",
-                            "Cambridge University", "Stanford University", "Massachusetts Institute of Technology",
-                            "Princeton University", "Harvard University", "Yale University", "University of Chicago",
-                            "Imperial College London"]
-
-    # HYPSM Dataframe: International and Domestic
-    pytrends.build_payload(colleges_HYPSM, cat=0, timeframe='today 5-y', geo='', gprop='')
-    worldData = pytrends.interest_over_time()
-
-    pytrends.build_payload(colleges_HYPSM, cat=0, timeframe='today 5-y', geo='US', gprop='')
-    usData = pytrends.interest_over_time()
-
-
-    worldData.columns = usData.columns = ["Harvard University", 'Stanford University',
-                                          'Massachusetts Institute of Technology', 'Princeton University',
-                                          'Yale University', "Useless Bool"]
-
-    #IvyLeague Data Frame: International and Domestic
-
-    pytrends.build_payload(colleges_ivyLeague1, cat=0, timeframe='today 5-y', geo='', gprop='')
-    ivyWorld1 = pytrends.interest_over_time()
-    pytrends.build_payload(colleges_ivyLeague2, cat=0, timeframe='today 5-y', geo='', gprop='')
-    ivyWorld2 = pytrends.interest_over_time()
-    ivyWorld = ivyWorld1.iloc[:, :-1].join(ivyWorld2.iloc[:, 1:-1])
-
-    pytrends.build_payload(colleges_ivyLeague1, geo='US', cat=0, timeframe='today 5-y', gprop='')
-    ivyUS1 = pytrends.interest_over_time()
-
-    pytrends.build_payload(colleges_ivyLeague2, cat=0, timeframe='today 5-y', geo='US', gprop='')
-    ivyUS2 = pytrends.interest_over_time()
-
-    ivyUS = ivyUS1.iloc[:, :-1].join(ivyUS2.iloc[:, 1:-1])
-
-    ivyWorld.columns = ["Harvard University", "Brown University", "Columbia University",
-                                        "Dartmouth College", "University of Pennsylvania", "Princeton University",
-                                        "Yale University", "Cornell University"]
-
-    ivyUS.columns = ["Harvard University", "Brown University", "Columbia University",
-                     "Dartmouth College", "University of Pennsylvania", "Princeton University",
-                     "Yale University", "Cornell University"]
 
     # Rename the columns so they in english again in the same order as the original list
-    annualWorld = getAnnualAverages(worldData, 5, 2014)
-    annualUS = getAnnualAverages(usData, 5, 2014)
-    ivyWorldOut = getAnnualAverages(ivyWorld, 5, 2014)
-    ivyUSOut = getAnnualAverages(ivyUS, 5, 2014)
+    ivyUSOut = getAnnualAverages(ivyUS, 5, 2015)
 
+    print(ivyUSOut.mean())
 
-    ivyUSOut = ivyUSOut.cumsum()
-    plt.figure()
-    ivyUSOut.plot()
+    plotLine(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time")
 
-    ivyWorldOut.plot.area()
-    annualUS.plot.area()
-    annualWorld.plot.area()
-
-
-    #Print all the data for our article!
-    print(worldData.mean())
-    print(annualWorld.mean())
-
-    print(usData.mean())
-    print(annualUS.mean())
-
-    print(ivyWorld.mean())
-    print(ivyUS.mean())
+    plotStackedHist(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time")
 
 # Get the annual averages from the master data DataFrame
 def getAnnualAverages(data, numYears, startingYear):
@@ -122,6 +63,84 @@ def getAnnualAverages(data, numYears, startingYear):
     output = output.div(output.sum(axis=1), axis=0)
     return output
 
+def getTrendsData(keywords, region, timeframe, flagTopic):
+
+    # FLAG: If FLAG = FALSE, keywords will be "Search Terms"
+    #       If FLAG = TRUE, keywords will be the first "Topic" that comes up.
+
+    # Initialize flag and temporary list of quieries with the keyword that should be in all of them.
+    old = 0
+    tempList = [pytrends.suggestions(keywords[0])[0]['mid']] if flagTopic else [keywords[0]]
+
+    # Initialize the datastructures
+    trendData = pd.DataFrame()
+    oldData = pd.DataFrame()
+
+    for index in range(1, len(keywords)):
+
+        # Add the next keyword in the list to the temporary list of queries
+        keyword = keywords[index]
+
+        tempList.append(pytrends.suggestions(keyword)[0]['mid']) if flagTopic else tempList.append(keyword)
+
+        # The maximum query request is five terms
+        if index // 4 != old or (index == len(keywords) - 1):
+
+            # Build the payload
+            pytrends.build_payload(tempList, cat=0, timeframe=timeframe, geo=region, gprop='')
+            newData = pytrends.interest_over_time()
+
+            # Merge the old and new DataFrames
+            if old == 0:
+                oldData = newData.iloc[:, :-1]
+                trendData = oldData
+            else:
+                trendData = oldData.join(newData.iloc[:, 1:-1])
+
+            # Reset the temporary queries and increase the flag.
+            tempList = [pytrends.suggestions(keywords[0])[0]['mid']] if flagTopic else [keywords[0]]
+            old += 1
+
+    # Update the columns of the trend data with the original names
+    trendData.columns = keywords
+
+    # Reorder the columns based off of their mean values.
+    return trendData.reindex(trendData.mean().sort_values(ascending=False).index, axis=1)
+
+def plotStackedHist(data, title):
+    plt.figure()
+
+    # Get the colors for the colleges
+    colors = []
+    for column in data.columns:
+        colors.append(college_colors[column])
+
+    # Plot the data
+    data.plot.bar(stacked=True, color=colors, figsize=(10,7))
+
+    # Adjust and show the rest of the figure
+    plt.legend(reversed(plt.legend().legendHandles), reversed(data.columns), loc='upper right')
+    plt.title(title)
+    plt.xticks(rotation='horizontal')
+    plt.show()
+
+
+def plotLine(data, title):
+    plt.figure()
+
+    # Get the colors for the colleges
+    colors = []
+    for column in data.columns:
+        colors.append(college_colors[column])
+
+    # Plot the data
+    data.plot.line(color=colors)
+
+    # Adjust and show the rest of the figure
+    plt.legend(reversed(plt.legend().legendHandles), reversed(data.columns), loc='upper right')
+    plt.title(title)
+    plt.xticks(rotation='horizontal')
+    plt.show()
 
 main()
 
