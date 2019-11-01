@@ -34,8 +34,6 @@ def main():
                       'Massachusetts Institute of Technology', 'Princeton University',
                       'Yale University']
 
-    harvard = ["Netflix"]
-
     # region = ''
     # timeframe = 'now 7-d'
     # #
@@ -47,10 +45,12 @@ def main():
     # #
     # print(len(getTimeframes("2018-12-13", "2019-11-14", 7)))
 
-    netflixMegaData = getMegaTrendData("Netflix", '', '2019-02-03 2019-10-30', 30, 600)
+    bostonMetro = 'US-NH-506'
+    sanfranMetro = 'US-CA-807'
+    searchMegaData = getMegaTrendData("Stanford University", sanfranMetro, '2018-01-01 2019-10-30', 15, 3000)
 
-    plotStackedHist(netflixMegaData, "Netflix Mega Data", False)
-    plotStackedHist(netflixMegaData.iloc[:, 1:], "Netflix Data without Netflix", False)
+    plotStackedHist(searchMegaData, "Stanford University", False)
+    plotStackedHist(searchMegaData.iloc[:, 1:], "Stanford More", True)
 
     # colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
     #                       "Dartmouth College", "University of Pennsylvania", "Princeton University",
@@ -170,6 +170,7 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
     virality = []
 
 
+
     # Add all of the related topics over that timeframe to the keywords list
     times = getTimeframes(timeframe[:10], timeframe[11:], interval)
     for time in times:
@@ -179,7 +180,11 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
 
         virality.append(len(topics['topic_title'].tolist()))
 
-    plotLine(virality, "Virality over time")
+    viralityPerQuarter = [0] * (len(virality)//6 + 1)
+    for index, item in enumerate(virality):
+        viralityPerQuarter[index // 6] += item
+    print(viralityPerQuarter)
+    print(virality)
     print(keyword_types)
 
     # Remove duplicates and punctuation from keywords:
@@ -188,7 +193,7 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
 
     # Remove single words that are too common in english like Mother or July
     adj2Keywords = []
-    [adj2Keywords.append(word) for word in adjKeywords if not (" " not in word and zipf_frequency(word, 'en') > 4.4)]
+    [adj2Keywords.append(word) for word in adjKeywords if not (" " not in word and zipf_frequency(word, 'en') > 5)]
 
     # Remove words with the same topics.
     topics = []
@@ -201,6 +206,7 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
         except IndexError:
             continue
 
+    print(f"Complete word cloud:        {adjKeywords}")
     print(f"Removed common words:       {list(set(adjKeywords) - set(adj2Keywords))}")
     print(f"Removed repeat topic words: {list(set(adjKeywords) - set(adj3Keywords))}")
     print(adj3Keywords)
