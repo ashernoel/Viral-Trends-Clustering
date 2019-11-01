@@ -47,10 +47,10 @@ def main():
 
     bostonMetro = 'US-NH-506'
     sanfranMetro = 'US-CA-807'
-    searchMegaData = getMegaTrendData("Stanford University", sanfranMetro, '2018-01-01 2019-10-30', 15, 3000)
+    searchMegaData = getMegaTrendData("Netflix", "", '2016-01-01 2019-10-30', 7, 800)
 
-    plotStackedHist(searchMegaData, "Stanford University", False)
-    plotStackedHist(searchMegaData.iloc[:, 1:], "Stanford More", True)
+    plotStackedHist(searchMegaData, "Netflix University", False)
+    plotStackedHist(searchMegaData.iloc[:, 1:], "Netflix More", True)
 
     # colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
     #                       "Dartmouth College", "University of Pennsylvania", "Princeton University",
@@ -180,9 +180,9 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
 
         virality.append(len(topics['topic_title'].tolist()))
 
-    viralityPerQuarter = [0] * (len(virality)//6 + 1)
+    viralityPerQuarter = [0] * (len(virality)//13 + 1)
     for index, item in enumerate(virality):
-        viralityPerQuarter[index // 6] += item
+        viralityPerQuarter[index // 13] += item
     print(viralityPerQuarter)
     print(virality)
     print(keyword_types)
