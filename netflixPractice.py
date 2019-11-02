@@ -25,7 +25,7 @@ plt.scatter(virality[12:], subscribers[12:], c='y', label='2019')
 plt.legend(loc='upper left')
 plt.show()
 
-# plt.scatter(virality, difference, c='r', label='data')
+# plt.scatter(wordfreqvirality, difference, c='r', label='data')
 #
 # plt.xlabel('Number of Viral Google Trends Topics')
 # plt.ylabel('Difference between forecast and actual Net Adds')
@@ -44,9 +44,3 @@ plt.plot(vpd, linearRegressor.predict(vpd), color = 'blue')
 print(r2_score(vpd, sub))
 
 plt.show()
-
-
-
-
-
-

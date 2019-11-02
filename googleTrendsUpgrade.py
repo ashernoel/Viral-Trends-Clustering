@@ -281,7 +281,3 @@ def getColors(data):
         colors.insert(0, np.random.rand(3, ))
 
     return colors
-
-
-
-

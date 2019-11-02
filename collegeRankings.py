@@ -24,10 +24,10 @@ sanfranMetro = 'US-CA-807'
 newYorkMetro = 'US-NY-501'
 chicagoMetro = 'US-IN-602'
 
-ivyUS = getTrendsData(colleges_USNews, chicagoMetro, 'today 5-y', True)
+ivyUS = getTrendsData(colleges_USNews, chicagoMetro, 'today 10-y', True)
 
 # Rename the columns so they in english again in the same order as the original list
-ivyUSOut = getAnnualAverages(ivyUS, 5, 2015)
+ivyUSOut = getAnnualAverages(ivyUS, 10, 2010)
 
 print(ivyUSOut)
 
