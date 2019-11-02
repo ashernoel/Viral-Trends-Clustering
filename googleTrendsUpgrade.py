@@ -27,44 +27,6 @@ college_colors = {"Harvard University": "#A51C30",
 
                   }
 
-def main():
-
-    # Define keywords to get data for
-    colleges_HYPSM = ["Harvard University", 'Stanford University',
-                      'Massachusetts Institute of Technology', 'Princeton University',
-                      'Yale University']
-
-    # region = ''
-    # timeframe = 'now 7-d'
-    # #
-    # pytrends.build_payload([pytrends.suggestions("harvard")[0]['mid']], cat=0, timeframe=timeframe, geo=region, gprop='')
-    # # newData = pytrends.related_topics()
-    #
-    # with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-    #     print(getRisingRelatedTopics("Netflix", "", timeframe, 250))
-    # #
-    # print(len(getTimeframes("2018-12-13", "2019-11-14", 7)))
-
-    bostonMetro = 'US-NH-506'
-    sanfranMetro = 'US-CA-807'
-    searchMegaData = getMegaTrendData("Netflix", "", '2016-01-01 2019-10-30', 7, 800)
-
-    plotStackedHist(searchMegaData, "Netflix University", False)
-    plotStackedHist(searchMegaData.iloc[:, 1:], "Netflix More", True)
-
-    # colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
-    #                       "Dartmouth College", "University of Pennsylvania", "Princeton University",
-    #                       "Yale University", "Cornell University", "Northeastern University"]
-    #
-    # ivyUS = getTrendsData(colleges_ivyLeague, 'US', 'today 5-y', True)
-    #
-    # # Rename the columns so they in english again in the same order as the original list
-    # ivyUSOut = getAnnualAverages(ivyUS, 5, 2015)
-    #
-    #
-    # plotLine(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time")
-    # plotStackedHist(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time")
-
 
 # Get the annual averages from the master data DataFrame
 def getAnnualAverages(data, numYears, startingYear):
@@ -158,7 +120,7 @@ def getRisingRelatedTopics(keyword, region, timeframe, cutoff):
     #Only return the topics above the cutoff
     return topics[pytrends.suggestions(keyword)[0]['mid']]['rising'].loc[topics[pytrends.suggestions(keyword)[0]['mid']]['rising']['value'] >= cutoff]
 
-def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
+def getViralKeywords(keyword, region, timeframe, interval, cutoff):
     # INPUT: Timeframe in YYYY-MM-DD YYYY-MM-DD format
 
     keywords = [keyword]
@@ -180,9 +142,9 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
 
         virality.append(len(topics['topic_title'].tolist()))
 
-    viralityPerQuarter = [0] * (len(virality)//13 + 1)
+    viralityPerQuarter = [0] * (len(virality)//6 + 1)
     for index, item in enumerate(virality):
-        viralityPerQuarter[index // 13] += item
+        viralityPerQuarter[index // 6] += item
     print(viralityPerQuarter)
     print(virality)
     print(keyword_types)
@@ -211,8 +173,11 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
     print(f"Removed repeat topic words: {list(set(adjKeywords) - set(adj3Keywords))}")
     print(adj3Keywords)
     print(len(adj3Keywords))
-    # Get the interest over time.
-    return getTrendsData(adj3Keywords, region, timeframe, True)
+
+    return adj3Keywords
+
+def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
+    return getTrendsData(getViralKeywords(keyword, region, timeframe, interval, cutoff), region, timeframe, True)
 
 def getTimeframes(start, end, interval):
     #start and end are in YYYY-MM-DD format.
@@ -316,8 +281,6 @@ def getColors(data):
         colors.insert(0, np.random.rand(3, ))
 
     return colors
-
-main()
 
 
 
