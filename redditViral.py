@@ -71,9 +71,14 @@ def feelings():
         print('{0}: {1}'.format(key, value))
 
 def feels2():
+    #nltk.download()
     text = scrapeReddit("halloween",1)
-    tokenizedText = sent_tokenize(text)
-    print(tokenizedText)
+    tokenizedPhrase = sent_tokenize(text) #split into arrays of phrases
+    tokenizedWord = nltk.tokenize.word_tokenize(text) #split into array of  words
+
+
+    print(tokenizedPhrase)
+    print(tokenizedWord)
 
 
 
