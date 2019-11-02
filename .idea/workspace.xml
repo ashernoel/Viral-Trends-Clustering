@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04cdbcb5-6627-496f-b86c-fb93ba22df98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collegeRankings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collegeViralTopics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/googleSearchScraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/googleSearchScraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collegeRankings.py" beforeDir="false" afterPath="$PROJECT_DIR$/collegeRankings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googleSearchScraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            <state relative-caret-position="176">
+              <caret line="36" column="24" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="36" selection-end-column="24" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -31,26 +28,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googleTrendsUpgrade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="171" column="21" lean-forward="true" selection-start-line="171" selection-start-column="21" selection-end-line="171" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/collegeViralTopics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state relative-caret-position="-570">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collegeViralTopics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collegeRankings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+            <state relative-caret-position="390">
+              <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -122,16 +119,17 @@
         <option value="$PROJECT_DIR$/netflixPractice.py" />
         <option value="$PROJECT_DIR$/analyze.py" />
         <option value="$PROJECT_DIR$/googleSearchScraper.py" />
-        <option value="$PROJECT_DIR$/collegeRankings.py" />
         <option value="$PROJECT_DIR$/collegeViralTopics.py" />
         <option value="$PROJECT_DIR$/googleTrendsUpgrade.py" />
+        <option value="$PROJECT_DIR$/collegeRankingScraper.py" />
+        <option value="$PROJECT_DIR$/collegeRankings.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="33" />
     <option name="y" value="24" />
-    <option name="width" value="1546" />
+    <option name="width" value="1647" />
     <option name="height" value="963" />
   </component>
   <component name="ProjectId" id="1StoqQ276cGikjDHyRX6Qfuq6gG" />
@@ -180,8 +178,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.googleTrendsUpgrade">
-    <configuration name="analyze" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.collegeRankings">
+    <configuration name="collegeRankingScraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="harvard-google-analytics" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -194,7 +192,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analyze.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/collegeRankingScraper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -293,11 +291,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.collegeRankings" />
+        <item itemvalue="Python.collegeRankingScraper" />
         <item itemvalue="Python.googleTrendsUpgrade" />
         <item itemvalue="Python.collegeViralTopics" />
-        <item itemvalue="Python.collegeRankings" />
         <item itemvalue="Python.googleSearchScraper" />
-        <item itemvalue="Python.analyze" />
       </list>
     </recent_temporary>
   </component>
@@ -315,22 +313,22 @@
       <workItem from="1572297523072" duration="11230000" />
       <workItem from="1572392444030" duration="251000" />
       <workItem from="1572393055512" duration="319000" />
-      <workItem from="1572515123827" duration="41445000" />
+      <workItem from="1572515123827" duration="44986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41764000" />
+    <option name="totallyTimeSpent" value="45305000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="24" width="1546" height="963" extended-state="0" />
+    <frame x="33" y="24" width="1647" height="963" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20412233" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19127727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39609644" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39609644" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -344,7 +342,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.27260637" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.3433022" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
     <layout-to-restore>
@@ -409,7 +407,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/harvard_google_analytics$netflixPractice.coverage" NAME="netflixPractice Coverage Results" MODIFIED="1572635704288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/harvard_google_analytics$collegeViralTopics.coverage" NAME="collegeViralTopics Coverage Results" MODIFIED="1572659477660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/harvard_google_analytics$collegeRankings.coverage" NAME="collegeRankings Coverage Results" MODIFIED="1572659456270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/harvard_google_analytics$collegeRankingScraper.coverage" NAME="collegeRankingScraper Coverage Results" MODIFIED="1572715132735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/harvard_google_analytics$collegeRankings.coverage" NAME="collegeRankings Coverage Results" MODIFIED="1572715824366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/harvard_google_analytics$analyze.coverage" NAME="analyze Coverage Results" MODIFIED="1572652983578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/harvard_google_analytics$scraping.coverage" NAME="scraping Coverage Results" MODIFIED="1572595490439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/harvard_google_analytics$googleSearchScraper.coverage" NAME="googleSearchScraper Coverage Results" MODIFIED="1572658578153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -441,16 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netflixPractice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analyze.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -461,34 +450,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collegeRankings.py">
+    <entry file="file://$PROJECT_DIR$/netflixPractice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googleSearchScraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="135">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googleTrendsUpgrade.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="171" column="21" lean-forward="true" selection-start-line="171" selection-start-column="21" selection-end-line="171" selection-end-column="21" />
+        <state relative-caret-position="-570">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collegeRankingScraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googleSearchScraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="36" column="24" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="36" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/collegeViralTopics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collegeRankings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
         </state>
       </provider>
     </entry>
