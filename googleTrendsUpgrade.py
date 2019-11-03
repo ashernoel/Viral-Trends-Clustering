@@ -1,5 +1,4 @@
 # Pytrends documentation: https://pypi.org/project/pytrends/
-# Connect Pytrends API to google
 from pytrends.request import TrendReq
 import pandas as pd
 import numpy as np
@@ -9,13 +8,10 @@ import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 from wordfreq import zipf_frequency
 
-
-# Remove the old hyper files from the last run time. Comment
-# Connect with Google somehow
 pytrends = TrendReq(hl='en-US', tz=360)
 
 college_colors = {"Harvard University": "#A51C30",
-                  "Stanford University": "#8C1515",
+                  "Stanford University": "w",
                   "Massachusetts Institute of Technology": "#8A8B8C",
                   "Princeton University": "#ff8f00",
                   "Yale University": "#0f4d92",
@@ -24,7 +20,6 @@ college_colors = {"Harvard University": "#A51C30",
                   "Columbia University": "#B9D9EB",
                   "Dartmouth College": "#00693e",
                   "University of Pennsylvania": "tab:purple",
-
                   }
 
 
@@ -61,7 +56,7 @@ def getTrendsData(keywords, region, timeframe, flagTopic):
 
         # Add the next keyword in the list to the temporary list of queries
         keyword = keywords[index]
-
+        print(keyword)
         # If the keyword does not have enough traffic, it will not be a topic; in these cases, add it as a search term.
         try:
             tempList.append(pytrends.suggestions(keyword)[0]['mid']) if flagTopic else tempList.append(keyword)
@@ -70,14 +65,14 @@ def getTrendsData(keywords, region, timeframe, flagTopic):
 
         # The maximum query request is five terms
         if index // 4 != old or (index == len(keywords) - 1):
-
+            print(tempList)
             # Build the payload
             pytrends.build_payload(tempList, cat=0, timeframe=timeframe, geo=region, gprop='')
 
             newData = pytrends.interest_over_time()
 
 
-            #Adjust the data so that the first column, the master column, has a maximum of 100
+            # Adjust the data so that the first column, the master column, has a maximum of 100
             maxMaster = newData[pytrends.suggestions(keywords[0])[0]['mid']].max() if flagTopic else newData[keywords[0]].max()
 
             newData.iloc[:, :-1] *= 100/(maxMaster)
@@ -131,20 +126,18 @@ def getViralKeywords(keyword, region, timeframe, interval, cutoff):
     # Track the number of rising topics per time interval over time.
     virality = []
 
-
-
     # Add all of the related topics over that timeframe to the keywords list
     times = getTimeframes(timeframe[:10], timeframe[11:], interval)
     for time in times:
         topics = getRisingRelatedTopics(keyword, region, time, cutoff)
         keyword_types.extend(topics['topic_type'].tolist())
         keywords.extend(topics['topic_title'].tolist())
-
         virality.append(len(topics['topic_title'].tolist()))
 
     viralityPerQuarter = [0] * (len(virality)//6 + 1)
     for index, item in enumerate(virality):
         viralityPerQuarter[index // 6] += item
+
     print(viralityPerQuarter)
     print(virality)
     print(keyword_types)
@@ -155,11 +148,12 @@ def getViralKeywords(keyword, region, timeframe, interval, cutoff):
 
     # Remove single words that are too common in english like Mother or July
     adj2Keywords = []
-    [adj2Keywords.append(word) for word in adjKeywords if not (" " not in word and zipf_frequency(word, 'en') > 5)]
+    [adj2Keywords.append(word) for word in adjKeywords if not (" " not in word and zipf_frequency(word, 'en') > 5.1)]
 
     # Remove words with the same topics.
     topics = []
     adj3Keywords = []
+
     for word in adj2Keywords:
         try:
             if pytrends.suggestions(word)[0]['mid'] not in topics:
@@ -171,8 +165,8 @@ def getViralKeywords(keyword, region, timeframe, interval, cutoff):
     print(f"Complete word cloud:        {adjKeywords}")
     print(f"Removed common words:       {list(set(adjKeywords) - set(adj2Keywords))}")
     print(f"Removed repeat topic words: {list(set(adjKeywords) - set(adj3Keywords))}")
-    print(adj3Keywords)
-    print(len(adj3Keywords))
+    print(f"Cleaned word cloud:         {adj3Keywords}")
+    print(f"Length of clean word cloud: {len(adj3Keywords)}")
 
     return adj3Keywords
 
@@ -180,9 +174,9 @@ def getMegaTrendData(keyword, region, timeframe, interval, cutoff):
     return getTrendsData(getViralKeywords(keyword, region, timeframe, interval, cutoff), region, timeframe, True)
 
 def getTimeframes(start, end, interval):
-    #start and end are in YYYY-MM-DD format.
-    #interval is an integer in days.
-    #return a list of all of the intervals in [YYYY-MM-DD YYYY-MM-DD] between a start and end date
+    # Start and end are in YYYY-MM-DD format.
+    # interval is an integer in days.
+    # return a list of all of the intervals in [YYYY-MM-DD YYYY-MM-DD] between a start and end date
 
     intervals = []
 
@@ -191,7 +185,7 @@ def getTimeframes(start, end, interval):
     while decimalTime(start) < decimalTime(end):
         tempDay = startDay + interval; tempYear = startYear; tempMonth = startMonth
 
-        #Adjust the day and month
+        # Adjust the day and month
         if tempDay > 30 and startMonth != 2:
             tempDay = tempDay % 30
             tempMonth += 1
@@ -199,12 +193,12 @@ def getTimeframes(start, end, interval):
             tempDay = tempDay % 28
             tempMonth += 1
 
-        #Adjust the month and year
+        # Adjust the month and year
         if tempMonth > 12:
             tempYear += 1
             tempMonth = tempMonth % 12
 
-        #add the new interval to intervals
+        # add the new interval to intervals
         start = toDatetime(tempYear, tempMonth, tempDay)
 
         intervals.append(toDatetime(startYear, startMonth, startDay) + " " + start)
@@ -215,13 +209,13 @@ def getTimeframes(start, end, interval):
 
 
 def decimalTime(time):
-    #input in YYYY-MM-DD format
-    #output in YYYY.XX format.
+    # input in YYYY-MM-DD format
+    # output in YYYY.XX format.
     return int(time[:4]) + int(time[5:7])/12 + int(time[8:])/365
 
 
 def toDatetime(year, month, day):
-    #input as integers, output as YYYY-MM-DD
+    # input as integers, output as YYYY-MM-DD
     MM = "0" + str(month) if month < 10 else str(month)
     return str(year) + "-" + str(MM) + "-" + str(day)
 
@@ -271,13 +265,15 @@ def plotLine(data, title):
 
 
 def getColors(data):
+    #input as data = dataframe.columns
+
     colors = []
-    for column in data.columns:
+    for column in data:
         if column in college_colors:
             colors.append(college_colors[column])
 
     # Randomly pick colors generally for when there are not colleges
-    while len(colors) < len(data.columns):
+    while len(colors) < len(data):
         colors.insert(0, np.random.rand(3, ))
 
     return colors

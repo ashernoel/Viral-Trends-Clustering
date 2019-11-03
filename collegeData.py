@@ -1,8 +1,8 @@
 from googleTrendsUpgrade import *
 
 colleges_HYPSM = ["Harvard University", 'Stanford University',
-                      'Massachusetts Institute of Technology', 'Princeton University',
-                      'Yale University']
+                  'Massachusetts Institute of Technology', 'Princeton University',
+                  'Yale University']
 
 colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
                       "Dartmouth College", "University of Pennsylvania", "Princeton University",
@@ -18,18 +18,9 @@ colleges_USNews = ["Princeton University", "Harvard University", "Columbia Unive
                    "Georgetown University", "Carnegie Mellon University", "University of Michigan: Ann Arbor",
                    "Wake Forest University", "University of Virginia",
                    "Georgia Institute of Technology", "New York University"]
-
-bostonMetro = 'US-NH-506'
-sanfranMetro = 'US-CA-807'
-newYorkMetro = 'US-NY-501'
-chicagoMetro = 'US-IN-602'
-
-ivyUS = getTrendsData(colleges_USNews, chicagoMetro, 'today 10-y', True)
-
-# Rename the columns so they in english again in the same order as the original list
-ivyUSOut = getAnnualAverages(ivyUS, 10, 2010)
-
-print(ivyUSOut)
-
-plotLine(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time")
-plotStackedHist(ivyUSOut.iloc[:, ::-1], "Domestic Ivy League Search Data Over Time", True)
+metros = {
+    "Boston": 'US-NH-506',
+    "San Fran": 'US-CA-807',
+    "New York": 'US-NY-501',
+    "Chicago": 'US-IN-602'
+}
