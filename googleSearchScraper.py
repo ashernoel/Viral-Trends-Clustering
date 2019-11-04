@@ -30,21 +30,25 @@ def get_google_definitions(input_list, dictionary_depth):
         soup = BeautifulSoup(response.text, 'html.parser')
         result_div = soup.find_all('div', attrs = {'class': 'ZINbbc'})
 
-        word_results = pd.DataFrame(columns=["Links", "Titles", "Descriptions"])
+        results = pd.DataFrame(columns=["Links", "Titles", "Descriptions"])
 
         for r in result_div:
             try:
                 link = r.find('a', href=True)
                 title = r.find('div', attrs={'class': 'vvjwJb'}).get_text()
-                description =r.find('div', attrs={'class': 's3v9rd'}).get_text()[:150]
+                description =r.find('div', attrs={'class': 's3v9rd'}).get_text().split()[:5]
                 if description != '' and title != '' and link != '':
-                    word_results = word_results.append({"Links": link, "Titles": title, "Descriptions": description}, ignore_index=True)
+                    results = results.append({"Links": link, "Titles": title, "Descriptions": " ".join(description)}, ignore_index=True)
 
             except:
                 continue
 
-        all_descriptions = word_results['Titles'].tolist()
-        descriptions = ' '.join(all_descriptions)
+        all_titles = results['Titles'].tolist()
+        print(all_titles)
+        all_desc = results['Descriptions'].tolist()
+        print(all_desc)
+
+        descriptions = ' '.join(all_titles)
 
         # Remove punctuation, lowercase, and tokenize
         tokens = word_tokenize(descriptions.translate(str.maketrans('', '', string.punctuation)).lower())

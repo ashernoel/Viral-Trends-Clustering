@@ -1,0 +1,561 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20193.19.1017.1259                               -->
+<workbook source-build='2019.3.1 (20193.19.1017.1259)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column alias='asdfadf' caption='Labels' datatype='real' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='0.0'>
+        <calculation class='tableau' formula='0.0' />
+        <aliases>
+          <alias key='0.0' value='asdfadf' />
+          <alias key='5.0' value='adf' />
+        </aliases>
+        <members>
+          <member alias='asdfadf' value='0.0' />
+          <member alias='adf' value='5.0' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-6' inline='true' name='federated.0pzvze21uyorhf1aczu661j6e2ic' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5' name='textscan.0mcm7df0ja84w310ekc6x1n7ey5d'>
+            <connection class='textscan' directory='/Users/ashernoel/PycharmProjects/harvard-google-analytics' filename='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv' password='' port='0' server='' />
+          </named-connection>
+          <named-connection caption='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5 (2)' name='textscan.0z7ci7n0ydocvo18zgso113bo7kh'>
+            <connection class='textscan' directory='/Users/ashernoel/PycharmProjects/harvard-google-analytics' filename='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1' name='textscan.1ydq4fo0cypkgc1f61psf0o7dzl8'>
+            <connection class='textscan' directory='/Users/ashernoel/PycharmProjects/harvard-google-analytics' filename='Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0z7ci7n0ydocvo18zgso113bo7kh' name='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv' table='[Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='Keywords' ordinal='0' />
+            <column datatype='integer' name='Cluster' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Keywords</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Keywords]</local-name>
+            <parent-name>[Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv]</parent-name>
+            <remote-alias>Keywords</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Cluster</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Cluster]</local-name>
+            <parent-name>[Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-5.csv]</parent-name>
+            <remote-alias>Cluster</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='Sum' caption='CategoryMIT' datatype='integer' name='[Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv)]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Category' datatype='integer' name='[Cluster]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column-instance column='[Cluster]' derivation='None' name='[none:Cluster:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.470423' measure-ordering='alphabetic' measure-percentage='0.497183' parameter-percentage='0.0323944' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Cluster:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>0</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>1</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Harvard University: Related Search Categories, Boston</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-6' name='federated.0pzvze21uyorhf1aczu661j6e2ic' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column alias='asdfadf' caption='Labels' datatype='real' name='[Parameter 1]' param-domain-type='list' role='measure' type='quantitative' value='0.0'>
+              <calculation class='tableau' formula='0.0' />
+              <aliases>
+                <alias key='0.0' value='asdfadf' />
+                <alias key='5.0' value='adf' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0pzvze21uyorhf1aczu661j6e2ic'>
+            <column aggregation='Sum' caption='Category' datatype='integer' name='[Cluster]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Cluster]' derivation='None' name='[none:Cluster:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[pcto:sum:Number of Records:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Table' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]'>
+            <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;' user:op='manual' />
+          </filter>
+          <slices>
+            <column>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='cell-w' value='848' />
+            <format attr='cell-h' value='848' />
+            <format attr='cell' value='106' />
+            <format attr='cell-q' value='530' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]' />
+              <wedge-size column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]' />
+              <size column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]' />
+              <text column='[Parameters].[Parameter 1]' />
+              <text column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>General Terms</run>
+                <run>Æ&#10;</run>
+                <run>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[sum:Number of Records:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='0.99950277805328369' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</rows>
+        <cols />
+        <percentages enabled='true' mode='table' />
+        <annotations>
+          <annotation class='point' id='2' mark-position='1' pullback='9.84886' text-width='193'>
+            <formatted-text>
+              <run bold='true' fontalignment='0'>General Terms</run>
+              <run fontalignment='0'>Æ&#10;</run>
+              <run bold='true' fontalignment='0'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run fontalignment='0'>&#10;Lil Pump, Dropping Out, Rowing, Ramen&#10;</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>2</value>
+                    <value>0.0</value>
+                    <value>0.43621399176954734</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.43621399176954734</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='23' y='77' />
+          </annotation>
+          <annotation class='point' id='3' mark-position='1' pullback='12' text-width='198'>
+            <formatted-text>
+              <run bold='true'>Peer Institutions</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#787878'>Æ </run>
+              <run bold='true'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run>&#10;Yale Football, Stanford, Cambridge, Mt. Auburn</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>1</value>
+                    <value>0.0</value>
+                    <value>0.090534979423868317</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.090534979423868317</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='176' y='-13' />
+          </annotation>
+          <annotation class='point' id='4' mark-position='1' pullback='12' text-width='200'>
+            <formatted-text>
+              <run bold='true'>University Terms</run>
+              <run>Æ&#10;</run>
+              <run fontcolor='#787878'>Æ </run>
+              <run bold='true'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run>&#10;Endowment, Law suit, Waitlist, Professor, Lecture&#10;</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>0</value>
+                    <value>0.0</value>
+                    <value>0.102880658436214</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.102880658436214</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='120' y='-48' />
+          </annotation>
+          <annotation class='point' id='5' mark-position='1' pullback='12' text-width='185'>
+            <formatted-text>
+              <run bold='true'>Harvard</run>
+              <run>Æ&#10;</run>
+              <run bold='true'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run>&#10;Crimson, HBS, HMS, Harvard Law School</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>5</value>
+                    <value>0.0</value>
+                    <value>0.20576131687242799</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.20576131687242799</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='-126' y='-30' />
+          </annotation>
+          <annotation class='point' id='6' mark-position='1' pullback='12' text-width='188'>
+            <formatted-text>
+              <run bold='true'>STEM</run>
+              <run>Æ&#10;</run>
+              <run bold='true'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run>&#10;CS, CS50, Applied Math, Botany</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>4</value>
+                    <value>0.0</value>
+                    <value>0.102880658436214</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.102880658436214</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='-119' y='-23' />
+          </annotation>
+          <annotation class='point' id='7' mark-position='1' pullback='12' text-width='184'>
+            <formatted-text>
+              <run bold='true' fontalignment='2'>Admissions</run>
+              <run fontalignment='2'>Æ&#10;</run>
+              <run bold='true' fontalignment='2'>&lt;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&gt;</run>
+              <run fontalignment='2'>&#10;Admisisons, SAT, CC, Ivy League&#10;</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields />
+                      <y-fields>
+                        <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]</field>
+                      <field>[Parameters].[Parameter 1]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[:Measure Names]</field>
+                      <field>[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>3</value>
+                    <value>0.0</value>
+                    <value>0.061728395061728392</value>
+                    <value>&quot;[federated.0pzvze21uyorhf1aczu661j6e2ic].[pcto:sum:Number of Records:qk]&quot;</value>
+                    <value>0.061728395061728392</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='-111' y='72' />
+          </annotation>
+        </annotations>
+      </table>
+      <simple-id uuid='{9E7D6A63-B074-40AA-85D7-8DB35787A59C}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Harvard University-US-NH-506-2018-01-01 2019-11-01-15-2000-6' name='federated.0pzvze21uyorhf1aczu661j6e2ic' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0pzvze21uyorhf1aczu661j6e2ic'>
+            <column aggregation='Sum' caption='CategoryMIT' datatype='integer' name='[Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv)]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column-instance column='[Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv)]' derivation='None' name='[none:Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='cell-w' value='272' />
+            <format attr='cell-h' value='272' />
+            <format attr='cell' value='34' />
+            <format attr='cell-q' value='170' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv):ok]' />
+              <wedge-size column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[sum:Number of Records:qk]' />
+              <size column='[federated.0pzvze21uyorhf1aczu661j6e2ic].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.86756908893585205' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{9134AD21-3301-4FDF-A042-BD80CBE1A885}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='136'>
+            <card pane-specification-id='0' param='[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster:ok]' type='color' />
+            <card pane-specification-id='0' param='[federated.0pzvze21uyorhf1aczu661j6e2ic].[Multiple Values]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+      </viewpoint>
+      <simple-id uuid='{84E4EF25-46E5-455C-A741-229D06E8F1A2}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0pzvze21uyorhf1aczu661j6e2ic].[none:Cluster (Massachusetts Institute of Technology-US-NH-506-2018-01-01 2019-11-01-15-2000-1.csv):ok]' type='color' />
+            <card pane-specification-id='0' param='[federated.0pzvze21uyorhf1aczu661j6e2ic].[sum:Number of Records:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0753FD6F-DC55-426A-9B7F-A363F60464DB}' />
+    </window>
+  </windows>
+</workbook>

@@ -14,7 +14,7 @@ def clusterSentencesSemantically(data, number_of_clusters, output_name):
 
     vec = TfidfVectorizer(stop_words="english",
                           max_df=0.75,
-                          min_df=0.02,
+                          min_df=0.01,
                           max_features=1000000,
                           use_idf=True)
 
@@ -44,7 +44,7 @@ def clusterSentencesSemantically(data, number_of_clusters, output_name):
 
     data['Cluster'] = km.labels_
 
-    if os.path.exists(f'{output_name}.csv'):
+    while os.path.exists(f'{output_name}.csv'):
         output_name = output_name.rsplit("-", 1)[0] + "-" + str(int(output_name.split("-")[-1]) + 1)
 
     data[["Keywords", "Cluster"]].to_csv(f'{output_name}.csv', index=None, header=True)
