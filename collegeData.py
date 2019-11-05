@@ -6,7 +6,7 @@ colleges_HYPSM = ["Harvard University", 'Stanford University',
 
 colleges_ivyLeague = ["Harvard University", "Brown University", "Columbia University",
                       "Dartmouth College", "University of Pennsylvania", "Princeton University",
-                      "Yale University", "Cornell University", "Northeastern University"]
+                      "Yale University", "Cornell University"]
 
 colleges_USNews = ["Princeton University", "Harvard University", "Columbia University",
                    "Massachusetts Institute of Technology", "Yale University", "Stanford University",

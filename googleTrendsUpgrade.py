@@ -6,21 +6,8 @@ import string
 
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
-from wordfreq import zipf_frequency
 
 pytrends = TrendReq(hl='en-US', tz=360)
-
-college_colors = {"Harvard University": "#A51C30",
-                  "Stanford University": "w",
-                  "Massachusetts Institute of Technology": "#8A8B8C",
-                  "Princeton University": "#ff8f00",
-                  "Yale University": "#0f4d92",
-                  "Cornell University": "#D47500",
-                  "Brown University": "#4E3629",
-                  "Columbia University": "#B9D9EB",
-                  "Dartmouth College": "#00693e",
-                  "University of Pennsylvania": "tab:purple",
-                  }
 
 
 # Get the annual averages from the master data DataFrame
@@ -67,6 +54,7 @@ def getTrendsData(keywords, region, timeframe, flagTopic):
         if index // 4 != old or (index == len(keywords) - 1):
             print(tempList)
             # Build the payload
+            print(region)
             pytrends.build_payload(tempList, cat=0, timeframe=timeframe, geo=region, gprop='')
 
             newData = pytrends.interest_over_time()
@@ -266,6 +254,18 @@ def plotLine(data, title):
 
 def getColors(data):
     #input as data = dataframe.columns
+
+    college_colors = {"Harvard University": "#A51C30",
+                      "Stanford University": "#d2c295",
+                      "Massachusetts Institute of Technology": "#8A8B8C",
+                      "Princeton University": "#ff8f00",
+                      "Yale University": "#0f4d92",
+                      "Cornell University": "#D47500",
+                      "Brown University": "#4E3629",
+                      "Columbia University": "#B9D9EB",
+                      "Dartmouth College": "#00693e",
+                      "University of Pennsylvania": "#011F5B",
+                      }
 
     colors = []
     for column in data:
