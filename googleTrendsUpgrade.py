@@ -268,12 +268,20 @@ def getColors(data):
                       }
 
     colors = []
+
+    import random
+    r = lambda: random.randint(0, 255)
+
     for column in data:
         if column in college_colors:
             colors.append(college_colors[column])
-
+        else:
+            aa = '#%02X%02X%02X' % (r(), r(), r())
+            print(aa)
+            colors.append(aa)
     # Randomly pick colors generally for when there are not colleges
     while len(colors) < len(data):
-        colors.insert(0, np.random.rand(3, ))
+        color = '#%02X%02X%02X' % (r(), r(), r())
+        colors.append(color)
 
     return colors
