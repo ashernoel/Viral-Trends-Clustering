@@ -44,18 +44,13 @@ To Visualize:
 
 ### The Stack
 
-<object data="/images/HODP_ Flowchartreal.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="/images/HODP_ Flowchartreal.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a  href="/images/HODP_ Flowchartreal.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+<img src="/images/HODPflowchartdisplay.png" alt="Default Login Screen" width="800"/>
 
 ### Example Visualizations
 
-<img src="/images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="300"/><img src="/images/Global US News College Search Trends.png" alt="Default Login Screen" width="300"/>
+<img src="/images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="600"/><img src="/images/Global US News College Search Trends.png" alt="Default Login Screen" width="600"/>
 
-<img src="/images/MIT- Related Search Categories.png" alt="Default Login Screen" width="300"/>
-<img src="/images/NetflixNetSubscribers.png" alt="Default Login Screen" width="300"/>
+<img src="/images/MIT- Related Search Categories.png" alt="Default Login Screen" width"600"/><img src="/images/NetflixNetSubscribers.png" alt="Default Login Screen" width="600"/>
 
 
 
