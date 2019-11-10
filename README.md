@@ -48,9 +48,15 @@ To Visualize:
 
 ### Example Visualizations
 
-<img src="/images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="400"/><img src="/images/Global US News College Search Trends.png" alt="Default Login Screen" width="400"/>
+<p align="center">
 
-<img src="/images/MIT Related Search Categories.png" alt="Default Login Screen" width="400"/><img src="/images/NetflixNetSubscribers.png" alt="Default Login Screen" width="400"/>
+<img src="/images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="600"/>
+<img src="/images/Global US News College Search Trends.png" alt="Default Login Screen" width="600"/>
+
+<img src="/images/MIT Related Search Categories.png" alt="Default Login Screen" width="600"/>
+<img src="/images/NetflixNetSubscribers.png" alt="Default Login Screen" width="600"/>
+
+</p>
 
 
 
