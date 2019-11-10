@@ -42,13 +42,16 @@ To Visualize:
 - /Visualization-Tableau workbooks/ : The two workbooks used for the pie charts. 
 - netflixPractice.py : Some quick visualizations of Netflix's virality results
 
+### The Stack
+
+<img src="/images/HODP_ Flowchartreal.pdf" alt="Default Login Screen" width="600"/>
 
 ### Example Visualizations
 
-<img src="/Images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="300"/><img src="/Images/Global US News College Search Trends.png" alt="Default Login Screen" width="300"/>
+<img src="/images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="300"/><img src="/images/Global US News College Search Trends.png" alt="Default Login Screen" width="300"/>
 
-<img src="/Images/MIT- RelatedSearchCategories.png" alt="Default Login Screen" width="300"/>
-<img src="/Images/NetflixNetSubscribers.png" alt="Default Login Screen" width="300"/>
+<img src="/images/MIT- RelatedSearchCategories.png" alt="Default Login Screen" width="300"/>
+<img src="/images/NetflixNetSubscribers.png" alt="Default Login Screen" width="300"/>
 
 
 
