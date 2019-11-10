@@ -11,8 +11,6 @@ Read more about our results in our Medium post:
 
 ## Getting Started
 
-The rest of the notes will help you deploy the code on your machines. 
-
 ### Prerequisites
 
 Python 3.7 or higher.
@@ -43,6 +41,15 @@ To Visualize:
 - /images/ : This holds graphics and data visualizations.
 - /Visualization-Tableau workbooks/ : The two workbooks used for the pie charts. 
 - netflixPractice.py : Some quick visualizations of Netflix's virality results
+
+
+### Example Visualizations
+
+<img src="/Images/Global HYPSM College Search Trends.png" alt="Default Login Screen" width="300"/><img src="/Images/Global US News College Search Trends.png" alt="Default Login Screen" width="300"/>
+
+<img src="/Images/MIT- RelatedSearchCategories.png" alt="Default Login Screen" width="300"/>
+<img src="/Images/NetflixNetSubscribers.png" alt="Default Login Screen" width="300"/>
+
 
 
 ## Built With
