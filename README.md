@@ -6,7 +6,7 @@ To remedy this, we first upgraded a Google Trends scraper to accommodate theoret
  
 To apply our upgraded Google Trends API, we analyzed the time-series interest of colleges and then the clustered viral keywords related to Harvard and MIT specifically. We reported that Harvard’s search volume can justify choosing Harvard because it’s “Harvard” and that the clustered viral topics show a divergence in the cultures of the two Cambridge institutions.
 
-Read more about our results in our Medium post: 
+Read more about our results in our Medium post: https://medium.com/harvard-open-data-project/analyzing-college-prestige-and-virality-through-google-trends-218b9ea767e6
 
 
 ## Getting Started
