@@ -2,7 +2,7 @@
 
 **MEDIUM**: Read more about our results in our Medium post: https://medium.com/harvard-open-data-project/analyzing-college-prestige-and-virality-through-google-trends-218b9ea767e6.
 
-**API**: Download the API "InfiniteTrends": https://https://pypi.org/project/InfiniteTrends/ or run pip install InfiniteTrends. 
+**API**: Download the API "InfiniteTrends": https://pypi.org/project/InfiniteTrends/ or run pip install InfiniteTrends. 
 
 Google Trends provides robust data about the cultural interests of human populations, but it does not support a public API, and its two private research API’s are limited to 5 and 30 keywords per query, respectively.
  
