@@ -52,17 +52,13 @@ def getTrendsData(keywords, region, timeframe, flagTopic):
 
         # The maximum query request is five terms
         if index // 4 != old or (index == len(keywords) - 1):
-            print(tempList)
+     
             # Build the payload
-            print(region)
             pytrends.build_payload(tempList, cat=0, timeframe=timeframe, geo=region, gprop='')
-
             newData = pytrends.interest_over_time()
-
-
+            
             # Adjust the data so that the first column, the master column, has a maximum of 100
             maxMaster = newData[pytrends.suggestions(keywords[0])[0]['mid']].max() if flagTopic else newData[keywords[0]].max()
-
             newData.iloc[:, :-1] *= 100/(maxMaster)
 
             # Merge the old and new DataFrames
